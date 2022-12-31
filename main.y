@@ -63,6 +63,7 @@ get_temp:
     {
         printf("\tTemp is %d\n", temp);
     }
+    ;
 
 target_set:
     T_TARGET T_TEMPERATURE T_NUMBER
@@ -71,4 +72,3 @@ target_set:
         printf("\tTemperature set\n");
     }
     ;
-
