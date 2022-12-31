@@ -11,12 +11,12 @@ int temp = 0;
 
 void yyerror(const char *str)
 {
-	fprintf(stderr,"error: %s\n",str);
+    fprintf(stderr,"error: %s\n",str);
 }
 
 int yywrap()
 {
-	return 1;
+    return 1;
 }
 
 int main(void)
@@ -33,21 +33,21 @@ int main(void)
 %%
 
 commands: /* empty */
-	| commands command
-	;
+    | commands command
+    ;
 
 
 command:
-	heat_switch
-	|
+    heat_switch
+    |
     get_temp
     |
-	target_set
-	;
+    target_set
+    ;
 
 heat_switch:
-	T_HEAT T_STATE 
-	{
+    T_HEAT T_STATE 
+    {
         if ($2) {
             state = 1;
             printf("\tHeat turned on\n");
@@ -55,8 +55,8 @@ heat_switch:
             state = 0;
             printf("\tHeat turned off\n");
         }
-	}
-	;
+    }
+    ;
 
 get_temp:
     T_GET T_TEMPERATURE
@@ -65,10 +65,10 @@ get_temp:
     }
 
 target_set:
-	T_TARGET T_TEMPERATURE T_NUMBER
-	{
+    T_TARGET T_TEMPERATURE T_NUMBER
+    {
         temp = $3;
-		printf("\tTemperature set\n");
-	}
-	;
+        printf("\tTemperature set\n");
+    }
+    ;
 
